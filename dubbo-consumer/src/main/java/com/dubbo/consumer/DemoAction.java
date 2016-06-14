@@ -26,7 +26,7 @@ public class DemoAction {
             try {
                 String hello = demoService.sayHello("world" + i);
                 System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " + hello);
-                String hi= demo2Service.sayHi("world" + i);
+                String hi= demo2Service.sayHi(null);
                 System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " + i);
             } catch (Exception e) {
                 e.printStackTrace();

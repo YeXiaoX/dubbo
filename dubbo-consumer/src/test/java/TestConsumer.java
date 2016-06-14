@@ -1,5 +1,6 @@
 import com.dubbo.demo.Demo2Service;
 import com.dubbo.demo.DemoService;
+import com.dubbo.demo.Man;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.text.SimpleDateFormat;
@@ -17,9 +18,10 @@ public class TestConsumer {
         Demo2Service demo2Service = (Demo2Service)context.getBean("demo2Service");
        // String hello = demoService.sayHello("world"); // 执行远程方法
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            Man man = new Man("haha"+i,22);
             try {
                 String hello = demoService.sayHello("world" + i);
-                String hi = demo2Service.sayHi("world" + i);
+                String hi = demo2Service.sayHi(man);
                 System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " + hello);
                 System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " + hi);
             } catch (Exception e) {

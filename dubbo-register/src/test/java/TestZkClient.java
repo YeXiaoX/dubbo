@@ -12,13 +12,14 @@ import java.util.List;
  */
 
 public class TestZkClient {
+
     public static void main(String args[]) {
         String path = "/dubbo1";
-        ZkClient zkClient = new ZkClient("10.140.44.170:2183,10.140.44.170:2181,10.140.44.170:2182",5000);
+        ZkClient zkClient = new ZkClient("192.168.247.128:2182",5000);
 
         System.out.println("是否存在：" + zkClient.exists("/dubbo/com.dubbo.demo.DemoService"));
 
-        List<String> children = zkClient.getChildren("/dubbo/com.dubbo.demo.Demo2Service/consumers");
+        List<String> children = zkClient.getChildren("/dubbo");
         for (String s : children) {
             try {
                 s = URLDecoder.decode(s, "UTF-8");
@@ -41,7 +42,7 @@ public class TestZkClient {
             }
         });
 
-        zkClient.subscribeDataChanges(path+"/c2", new IZkDataListener() {
+        zkClient.subscribeDataChanges(path+"/c1", new IZkDataListener() {
             public void handleDataDeleted(String dataPath) throws Exception {
                 System.out.println("the node 'dataPath'===>");
             }
@@ -62,8 +63,9 @@ public class TestZkClient {
         System.out.println("3333333333333333333" );
 
 
-        System.out.println(zkClient.getChildren(path));
-//        zkClient.createPersistent(path + "/c1");
+      //  System.out.println(zkClient.getChildren(path));
+        zkClient.createPersistent(path );
+        zkClient.createPersistent(path +"/c1");
         zkClient.writeData(path+"/c1","test001");
         System.out.println("是否存在：" + zkClient.exists("/dubbo1/c1/d1"));
         //zkClient.createPersistent(path+"/c1/d1");
@@ -77,12 +79,12 @@ public class TestZkClient {
             e.printStackTrace();
         }
         System.out.println("55555555" );
-//        zkClient.delete(path + "/c1");
+        zkClient.delete(path + "/c1");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        zkClient.delete(path);
+        zkClient.delete(path);
     }
 }

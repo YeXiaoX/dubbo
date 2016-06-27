@@ -88,7 +88,7 @@ public class SelectSocketsThreadPool extends SelectSockets {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
-                    key.selector().wakeup();
+                    key.selector().wakeup();//出现异常唤醒select方法
                 }
                 key = null;
                 this.pool.returnWorker(this);//把线程返回到链表中

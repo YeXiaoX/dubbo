@@ -75,6 +75,7 @@ public class SelectSocketsThreadPool extends SelectSockets {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println("线程ID:"+Thread.currentThread().getId());
                 if (key == null) {
                     continue;
                 }
@@ -97,8 +98,9 @@ public class SelectSocketsThreadPool extends SelectSockets {
 
         synchronized void serviceChannel(SelectionKey key) {//给线程赋key值，并唤醒线程
             this.key = key;
+            System.out.println("线程2ID:"+Thread.currentThread().getId());
             key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));//取消一个read事件
-            this.notify();
+            this.notify();//唤醒分配的线程
         }
 
         void drainChannel(SelectionKey key) throws Exception {

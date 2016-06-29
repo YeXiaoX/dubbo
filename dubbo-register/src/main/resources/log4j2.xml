@@ -2,7 +2,8 @@
 
 <Configuration status="WARN">
     <properties>
-        <property name="logPath">log4j</property>
+        <property name="logPath">E:\dubbo\TestDubbo\dubbo-register\log</property><!--日志保存路径-->
+        <property name="level">debug</property>
     </properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
@@ -18,7 +19,7 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="debug"><!--只输入界别高于debug的日志信息-->
+        <Root level="${level}"><!--只输入界别高于debug的日志信息-->
             <AppenderRef ref="Console"/>
             <AppenderRef ref="MyFileAppender"/>
         </Root>

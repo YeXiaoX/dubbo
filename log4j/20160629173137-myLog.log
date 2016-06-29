@@ -1,0 +1,13 @@
+  17:31:37.931 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：14
+  17:31:37.941 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:31:37.941 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：16
+  17:31:37.956 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:31:37.956 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：12
+  17:31:37.989 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:31:37.989 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:31:37.989 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：14
+  17:31:37.989 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：16
+  17:31:37.990 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:31:37.990 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:31:37.990 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：12
+  17:31:37.991 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入

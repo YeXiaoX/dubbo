@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+    <properties>
+        <property name="logPath">log4j</property>
+    </properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%X{username}  %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingFile name="MyFileAppender" fileName="testProject.log" append="true" filepattern="${logPath}/testProject-%d{yyyy-MM-dd_HH}-%i.log">
+            <PatternLayout pattern="%X{username}  %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10k"/>  <!--基于大小新建日志文件，这里大小是100兆-->
+                <!--<TimeBasedTriggeringPolicy interval="1" modulate="true"/>--><!--基于时间触发新建日志文件，这里1表示一天-->
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug"><!--只输入界别高于debug的日志信息-->
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MyFileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

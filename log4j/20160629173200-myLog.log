@@ -1,0 +1,12 @@
+  17:32:00.907 [main] ERROR com.javaNIO.test.SelectSockets - java.lang.NullPointerException
+  17:32:00.931 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:32:00.931 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：15
+  17:32:00.931 [main] INFO  com.javaNIO.test.SelectSockets - 当前处理线程为：13
+  17:32:00.932 [main] ERROR com.javaNIO.test.SelectSockets - java.lang.NullPointerException
+  17:32:00.932 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:32:00.933 [main] ERROR com.javaNIO.test.SelectSockets - java.lang.NullPointerException
+  17:32:00.934 [main] ERROR com.javaNIO.test.SelectSockets - java.lang.NullPointerException
+  17:32:00.934 [main] INFO  com.javaNIO.test.SelectSockets - 新的链接接入
+  17:32:00.935 [main] ERROR com.javaNIO.test.SelectSockets - java.lang.NullPointerException
+  17:32:00.935 [main] ERROR com.javaNIO.test.SelectSockets - java.lang.NullPointerException
+  17:32:00.935 [main] ERROR com.javaNIO.test.SelectSockets - java.lang.NullPointerException

@@ -1,5 +1,8 @@
 package com.javaNIO.test;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -14,6 +17,7 @@ import java.util.List;
 public class SelectSocketsThreadPool extends SelectSockets {
     private static final int MAX_THREADS = 5;
     private ThreadPool pool = new ThreadPool(MAX_THREADS);
+    private static final Logger logger = LogManager.getLogger(SelectSockets.class);
 
     public static void main(String[] argv) throws Exception {
         new SelectSocketsThreadPool().go(argv);//启动服务端接收客户端请求
@@ -22,6 +26,7 @@ public class SelectSocketsThreadPool extends SelectSockets {
 
     protected void readDataFromSocket(SelectionKey key) throws Exception {
         WorkerThread worker = pool.getWorker();//当有数据准备好要读取时，获得一个线程去做这件事
+        logger.info("当前处理线程为："+worker.getId());
         if (worker == null) {
             return;
         }
@@ -110,7 +115,8 @@ public class SelectSocketsThreadPool extends SelectSockets {
             while ((count = channel.read(buffer)) > 0) {
                 buffer.flip();
                 while (buffer.hasRemaining()) {
-                    channel.write(buffer);
+                    System.out.print((char)buffer.get());
+                    //channel.write(buffer);
                 }
                 buffer.clear();
             }
